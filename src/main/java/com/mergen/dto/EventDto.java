@@ -23,13 +23,9 @@ public class EventDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private UUID eventId;
-
     private Date displayDate;
-
     private String channel;
-
     private List<EventDataDto> data;
-
     private Date timestamp;
 
 }
