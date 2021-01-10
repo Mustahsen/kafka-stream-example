@@ -5,10 +5,10 @@ import com.mergen.dto.EventDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
 import java.time.Clock;
 import java.time.Instant;
@@ -23,7 +23,7 @@ import java.util.Random;
 import java.util.UUID;
 
 @Slf4j
-@Component
+@Configuration
 @EnableScheduling
 @RequiredArgsConstructor
 @ConditionalOnProperty(prefix = "kafka.test-scheduling", name = "enabled")
@@ -90,7 +90,7 @@ public class SchedulingConfiguration {
         log.info("Product: 2001 Impression Count: {}", p2Count);
     }
 
-    @Scheduled(fixedDelay = 10000L)
+    @Scheduled(fixedDelay = 10_000L)
     public void produceClick() {
         Instant now = Instant.now(Clock.systemUTC());
         Date timestamp = Date.from(now);
