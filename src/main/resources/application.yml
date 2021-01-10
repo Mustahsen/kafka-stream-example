@@ -1,2 +1,25 @@
 server:
   port: 8080
+
+kafka:
+  test-scheduling:
+    enabled: true
+
+spring:
+  kafka:
+    client-id: client-group
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      group-id: consumer-group
+      max-poll-records:
+    streams:
+      application-id: stream-app
+      properties:
+        commit.interval.ms: 100
+    listener:
+      pollTimeout: 5000
+      idleEventInterval: 100000
+      concurrency: 5
+    bootstrap-servers: localhost:9092
