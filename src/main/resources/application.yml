@@ -4,6 +4,24 @@ server:
 kafka:
   test-scheduling:
     enabled: true
+  topics:
+    flattened-event-topic: flattened-event-topic
+    aggregation-topic: aggregation-topic
+    product-aggregation-topic: product-aggregation-topic
+    seller-aggregation-topic: seller-aggregation-topic
+  topic-configs:
+    - name: flattened-event-topic
+      num-partitions: 1
+      replication-factor: 1
+    - name: aggregation-topic
+      num-partitions: 1
+      replication-factor: 1
+    - name: product-aggregation-topic
+      num-partitions: 1
+      replication-factor: 1
+    - name: seller-aggregation-topic
+      num-partitions: 1
+      replication-factor: 1
 
 spring:
   kafka:
